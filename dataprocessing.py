@@ -14,7 +14,7 @@ def get_img_file(file_name):
         return imagelist
     
 def rgb2y(img):
-    y = img[0:1, :, :] * 0.299000 + img[1:2, :, :] * 0.587000 + img[2:3, :, :] * 0.114000
+    y = img[0:1, :, :] * 0.299000 + img[1:2, :, :] * 0.587000 + img[2:3, :, :] * 0.114000 #rgb2y???
     return y
 
 def Im2Patch(img, win, stride=1):
@@ -47,7 +47,7 @@ IR_files = sorted(get_img_file(r"MSRS_train/ir"))
 VIS_files   = sorted(get_img_file(r"MSRS_train/vi"))
 
 assert len(IR_files) == len(VIS_files)
-h5f = h5py.File(os.path.join('.\\data',
+h5f = h5py.File(os.path.join('./data',
                                  data_name+'_imgsize_'+str(img_size)+"_stride_"+str(stride)+'.h5'), 
                     'w')
 h5_ir = h5f.create_group('ir_patchs')
